@@ -21,6 +21,8 @@ body {
     color: var(--text);
     font-family: var(--font);
     height: 100vh;
+    height: 100dvh;
+    /* Dynamic viewport height for mobile */
     overflow: hidden;
     display: flex;
     flex-direction: column;
@@ -57,9 +59,20 @@ header {
 }
 
 @keyframes pulse {
-    0% { transform: scale(0.95); box-shadow: 0 0 0 0 var(--primary-glow); }
-    70% { transform: scale(1); box-shadow: 0 0 0 10px rgba(34, 211, 238, 0); }
-    100% { transform: scale(0.95); box-shadow: 0 0 0 0 rgba(34, 211, 238, 0); }
+    0% {
+        transform: scale(0.95);
+        box-shadow: 0 0 0 0 var(--primary-glow);
+    }
+
+    70% {
+        transform: scale(1);
+        box-shadow: 0 0 0 10px rgba(34, 211, 238, 0);
+    }
+
+    100% {
+        transform: scale(0.95);
+        box-shadow: 0 0 0 0 rgba(34, 211, 238, 0);
+    }
 }
 
 .badge {
@@ -91,6 +104,8 @@ main {
     border: 1px solid rgba(255, 255, 255, 0.1);
     border-radius: 20px 20px 0 0;
     padding: 1.5rem;
+    padding-bottom: calc(1.5rem + env(safe-area-inset-bottom));
+    /* Add safe area for iPhones */
     position: absolute;
     bottom: 0;
     left: 0;
@@ -184,7 +199,9 @@ input[type="range"]::-webkit-slider-thumb {
     margin-top: 0.5rem;
 }
 
-.hidden { display: none !important; }
+.hidden {
+    display: none !important;
+}
 
 /* Overlay styles */
 .overlay {
@@ -210,8 +227,15 @@ input[type="range"]::-webkit-slider-thumb {
 }
 
 @keyframes slideUp {
-    from { transform: translateY(20px); opacity: 0; }
-    to { transform: translateY(0); opacity: 1; }
+    from {
+        transform: translateY(20px);
+        opacity: 0;
+    }
+
+    to {
+        transform: translateY(0);
+        opacity: 1;
+    }
 }
 
 .alarm-icon {
@@ -224,18 +248,29 @@ input[type="range"]::-webkit-slider-thumb {
 }
 
 @keyframes pulseRed {
-    0% { transform: scale(1); }
-    50% { transform: scale(1.1); text-shadow: 0 0 20px var(--danger); }
-    100% { transform: scale(1); }
+    0% {
+        transform: scale(1);
+    }
+
+    50% {
+        transform: scale(1.1);
+        text-shadow: 0 0 20px var(--danger);
+    }
+
+    100% {
+        transform: scale(1);
+    }
 }
 
 /* Custom Leaflet Dark Theme Hack */
 .leaflet-container {
     background: #1e293b !important;
 }
+
 .leaflet-tile {
     filter: brightness(0.6) invert(1) contrast(3) hue-rotate(200deg) saturate(0.3) brightness(0.7);
 }
+
 .leaflet-control-attribution {
     display: none;
 }

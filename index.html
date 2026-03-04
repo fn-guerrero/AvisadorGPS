@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>AvisadorGPS - Tu Alarma de Proximidad</title>
+    <meta name="description" content="Alarma GPS de proximidad para no pasarte de tu destino.">
+    
+    <!-- Leaflet CSS -->
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY=" crossorigin=""/>
+    
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600&display=swap" rel="stylesheet">
+    
+    <link rel="stylesheet" href="style.css">
+    <link rel="manifest" href="manifest.json">
+    <meta name="theme-color" content="#0f172a">
+</head>
+<body>
+    <div id="app">
+        <header>
+            <div class="logo">
+                <span class="pulse"></span>
+                <h1>AvisadorGPS</h1>
+            </div>
+            <div id="status-badge" class="badge">Buscando señal...</div>
+        </header>
+
+        <main>
+            <div id="map"></div>
+            
+            <div id="controls" class="glass-panel">
+                <div class="distance-display">
+                    <span class="label">Distancia al destino</span>
+                    <span id="distance-value">-- m</span>
+                </div>
+                
+                <div class="input-group">
+                    <label for="radius">Radio de alerta (m)</label>
+                    <input type="range" id="radius" min="100" max="2000" step="50" value="500">
+                    <span id="radius-label">500m</span>
+                </div>
+
+                <div class="action-buttons">
+                    <button id="set-alarm" class="btn btn-primary">Activar Alarma</button>
+                    <button id="cancel-alarm" class="btn btn-danger hidden">Cancelar</button>
+                </div>
+            </div>
+        </main>
+
+        <div id="alarm-overlay" class="overlay hidden">
+            <div class="alarm-content glass-panel">
+                <div class="alarm-icon pulse-red">🔔</div>
+                <h2>¡Llegaste!</h2>
+                <p>Estás dentro del radio de destino.</p>
+                <button id="stop-alarm" class="btn btn-primary">Entendido</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Leaflet JS -->
+    <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js" integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo=" crossorigin=""></script>
+    <script src="app.js"></script>
+</body>
+</html>

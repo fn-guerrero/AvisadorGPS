@@ -1,0 +1,22 @@
+{
+    "name": "AvisadorGPS",
+    "short_name": "AvisadorGPS",
+    "description": "Alarma de proximidad basada en GPS.",
+    "start_url": "index.html",
+    "display": "standalone",
+    "background_color": "#0f172a",
+    "theme_color": "#0f172a",
+    "orientation": "portrait",
+    "icons": [
+        {
+            "src": "icon.png",
+            "type": "image/png",
+            "sizes": "192x192"
+        },
+        {
+            "src": "icon_512.png",
+            "type": "image/png",
+            "sizes": "512x512"
+        }
+    ]
+}

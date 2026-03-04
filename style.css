@@ -86,13 +86,14 @@ header {
 
 main {
     flex: 1;
-    position: relative;
     display: flex;
     flex-direction: column;
+    overflow: hidden;
+    position: relative;
 }
 
 #map {
-    height: 100%;
+    flex: 1;
     width: 100%;
     z-index: 1;
 }
@@ -102,8 +103,8 @@ main {
     backdrop-filter: blur(12px);
     -webkit-backdrop-filter: blur(12px);
     border: 1px solid rgba(255, 255, 255, 0.1);
-    border-radius: 20px 20px 0 0;
-    padding: 1.5rem;
+    border-radius: 24px 24px 0 0;
+    padding: 1.25rem;
     padding-bottom: calc(1.5rem + env(safe-area-inset-bottom));
     /* Add safe area for iPhones */
     position: absolute;
@@ -112,36 +113,38 @@ main {
     right: 0;
     z-index: 10;
     box-shadow: 0 -10px 25px rgba(0, 0, 0, 0.3);
+    margin-top: -24px;
+    /* Slight overlap on the map */
 }
 
 .distance-display {
     text-align: center;
-    margin-bottom: 1.5rem;
+    margin-bottom: 1rem;
 }
 
 .distance-display .label {
     display: block;
-    font-size: 0.875rem;
+    font-size: 0.75rem;
     color: var(--text-muted);
-    margin-bottom: 0.25rem;
+    margin-bottom: 0.1rem;
 }
 
 #distance-value {
-    font-size: 2.5rem;
+    font-size: 2rem;
     font-weight: 600;
     color: var(--primary);
     text-shadow: 0 0 15px var(--primary-glow);
 }
 
 .input-group {
-    margin-bottom: 1.5rem;
+    margin-bottom: 1rem;
 }
 
 .input-group label {
     display: block;
-    font-size: 0.875rem;
+    font-size: 0.75rem;
     color: var(--text-muted);
-    margin-bottom: 0.75rem;
+    margin-bottom: 0.5rem;
 }
 
 input[type="range"] {
